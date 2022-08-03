@@ -19,10 +19,10 @@ jobs:
           pip install sphinx sphinx_rtd_theme
       - name: Sphinx build
         run: |
-          git worktree add _build gh-pages
           sphinx-build doc _build
       - name: Deploy
         run: |
+          git worktree add _build gh-pages
           git add --all
           git commit -m "deploy documentation updates"
           git push origin gh-pages
