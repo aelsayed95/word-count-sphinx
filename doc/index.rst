@@ -7,6 +7,8 @@
 word-count
 ==========
 
+This is a documentation site for the word count tool.
+
 .. toctree::
    :maxdepth: 2
 
