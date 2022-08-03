@@ -3,7 +3,7 @@ name: DIY Docs
 on:
   push:
     branches:
-      - "master"
+      - master
 
 jobs:
   docs:
