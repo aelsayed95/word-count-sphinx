@@ -1,9 +1,9 @@
 name: DIY Docs
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
+    branches:
+      - "master"
 
 jobs:
   docs:
@@ -20,8 +20,6 @@ jobs:
       - name: Sphinx build
         run: |
           sphinx-build doc _build
-      - name: Deploy
-        run: |
           git worktree add _build gh-pages
           git add --all
           git commit -m "deploy documentation updates"
