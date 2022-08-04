@@ -9,7 +9,6 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
         with:
           python-version: '3.10'
@@ -17,8 +16,7 @@ jobs:
         run: |
           pip install sphinx sphinx_rtd_theme
       - name: Sphinx build
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/checkout@v3
         run: |
           git worktree add _build gh-pages
           sphinx-build doc _build
