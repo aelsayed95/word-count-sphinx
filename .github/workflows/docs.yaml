@@ -26,7 +26,7 @@ jobs:
           sphinx-build doc _build
           git config user.email "ayah.ehab11@gmail.com"
           git config user.name "Aya Elsayed"
+          cd _build
           git add --all
           git commit -m "deploy documentation updates"
           git push origin gh-pages
-          git worktree remove _build
