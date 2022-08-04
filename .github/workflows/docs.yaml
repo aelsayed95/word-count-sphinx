@@ -19,6 +19,7 @@ jobs:
       - name: Sphinx build
         run: |
           git remote -v
+          git branch -a
           git worktree add _build gh-pages
           sphinx-build doc _build
           git add --all
