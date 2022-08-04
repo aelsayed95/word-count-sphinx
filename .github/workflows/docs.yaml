@@ -24,6 +24,8 @@ jobs:
           git branch -a
           git worktree add _build gh-pages
           sphinx-build doc _build
+          git config user.email "ayah.ehab11@gmail.com"
+          git config user.name "Aya Elsayed"
           git add --all
           git commit -m "deploy documentation updates"
           git push origin gh-pages
