@@ -17,8 +17,8 @@ jobs:
         run: |
           pip install sphinx sphinx_rtd_theme
       - name: Sphinx build
-        with:
-            repo-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git worktree add _build gh-pages
           sphinx-build doc _build
