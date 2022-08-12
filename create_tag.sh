@@ -14,3 +14,5 @@ PATCH=${vers[2]}
 ((PATCH+=1))
 NEWTAG="v$MAJ.$MIN.${PATCH}"
 echo "Next version is $NEWTAG"
+git tag -a $NEWTAG -m $NEWTAG
+git push origin $NEWTAG
