@@ -10,6 +10,7 @@ jobs:
     if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'docs-version++')
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "The merged PR had a label called 'docs-version++'"
-        ./increment_version.sh
+      - uses: actions/checkout@v3
+      - run: |
+          echo "The merged PR had a label called 'docs-version++'"
+          ./increment_version.sh
