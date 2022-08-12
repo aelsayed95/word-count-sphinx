@@ -1,5 +1,4 @@
 # get current tag
-
 CURTAG=`git describe --abbrev=0 --tags`;
 CURTAG="${CURTAG/v/}"
 echo "Current version is ${CURTAG}"
