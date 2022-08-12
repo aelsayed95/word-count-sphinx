@@ -1,0 +1,15 @@
+name: New Docs Version
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true && contains(github.event.issue.labels.*.name, 'docs-version++')
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "The merged PR had a label called 'docs-version++'"
+        ./increment_version.sh
