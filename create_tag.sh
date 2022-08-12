@@ -6,9 +6,9 @@ echo "Current version is ${CURTAG}"
 
 # parse major, minor, patch
 IFS='.' read -a vers <<< "$CURTAG"
-MAJ=${vers[0]}
-MIN=${vers[1]}
-PATCH=${vers[2]}
+MAJ=${vers[0]:-0}
+MIN=${vers[1]:-0}
+PATCH=${vers[2]:-0}
 
 # create new tag with patch++
 ((PATCH+=1))
