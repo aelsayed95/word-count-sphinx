@@ -10,7 +10,7 @@ word-count
 This is a documentation site for the word count tool.
 Testing.
 
-This is an update. This is another update.
+This is an update. This is another update. Here's a third update.
 
 .. toctree::
    :maxdepth: 2

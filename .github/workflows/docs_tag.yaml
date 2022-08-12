@@ -10,10 +10,25 @@ jobs:
     if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'docs-version++')
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: |
+          pip install sphinx sphinx_rtd_theme sphinx_multiversion
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: get version
+      - name: Sphinx build
         run: |
-          echo "The merged PR had a label called 'docs-version++'"
-          ./increment_version.sh
+          git worktree add _build gh-pages
+          sphinx-multiversion doc _build
+      - name: Deploy docs
+        run: |
+          git config user.email "ayah.ehab11@gmail.com"
+          git config user.name "Aya Elsayed"
+          cd _build
+          git add --all
+          git commit -m "deploy documentation updates"
+          ./create_tag.sh
+          git push origin gh-pages
