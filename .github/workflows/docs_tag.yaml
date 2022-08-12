@@ -7,7 +7,7 @@ on:
 
 jobs:
   next_tag:
-    if: github.event.pull_request.merged == true && contains(github.pull_request.labels.*.name, 'docs-version++')
+    if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'docs-version++')
     runs-on: ubuntu-latest
     steps:
     - run: |
