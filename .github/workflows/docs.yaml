@@ -14,14 +14,14 @@ jobs:
           python-version: '3.10'
       - name: Install dependencies
         run: |
-          pip install sphinx sphinx_rtd_theme
+          pip install sphinx sphinx_rtd_theme sphinx_multiversion
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Sphinx build
         run: |
           git worktree add _build gh-pages
-          sphinx-build doc _build
+          sphinx-multiversion doc _build
           git config user.email "ayah.ehab11@gmail.com"
           git config user.name "Aya Elsayed"
           cd _build
