@@ -19,6 +19,9 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: Create new tag
+        run: |
+          ./create_tag.sh
       - name: Sphinx build
         run: |
           git worktree add _build gh-pages
@@ -30,5 +33,4 @@ jobs:
           cd _build
           git add --all
           git commit -m "deploy documentation updates"
-          ../create_tag.sh
           git push origin gh-pages
