@@ -27,16 +27,13 @@ jobs:
         if: contains(github.event.pull_request.labels.*.name, 'docs-version++')
         run: |
           ./create_tag.sh
-      - name: Finishing
+      - name: Sphinx build
         run: |
-          echo "done."
-      # - name: Sphinx build
-      #   run: |
-      #     git worktree add _build gh-pages
-      #     sphinx-multiversion doc _build
-      # - name: Deploy docs
-      #   run: |
-      #     cd _build
-      #     git add --all
-      #     git commit -m "deploy documentation updates"
-      #     git push origin gh-pages
+          git worktree add _build gh-pages
+          sphinx-multiversion doc _build
+      - name: Deploy docs
+        run: |
+          cd _build
+          git add --all
+          git commit -m "deploy documentation updates"
+          git push origin gh-pages
